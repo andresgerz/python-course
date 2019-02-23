@@ -624,8 +624,10 @@ Created on Tue Nov  6 22:18:47 2018
 #==============================================================================
 # Extern files: Here I created a file, wrote and closed the file.
     
-from io import open
-
+#==============================================================================
+# from io import open
+# 
+#==============================================================================
 # write mode
 #==============================================================================
 # 
@@ -695,14 +697,409 @@ from io import open
 # 
 #==============================================================================
 #I read the binary file
-fileb = open("list","rb")
 
-ls = pickle.load(fileb)
+# fileb = open("list","rb")
+# 
+# ls = pickle.load(fileb)
+# 
+# print(ls)
+#==============================================================================
+# #==============================================================================
+# #Serialize an object
+# 
+# import pickle
+# 
+# class vehicle():
+#  
+#   def __init__(self ,mark ,model):
+#       
+#       self.mark = mark
+#       self.model = model
+#       self.inmotion = False
+#       self.acelerate = False
+#       self.stop = False
+#       
+#   def start(self):
+#       self.inmotion = True
+#   
+#   def acelerate(self):
+#       self.acelerate = True
+#       
+#   def stop(self):
+#       self.stop = True
+#       
+#   def state(self):
+#       print("Mark: " ,self.mark ,"\n Model: " ,self.model , "\n In motion: ",
+#             self.inmotion, "\n Acelerate: ", self.acelerate , "\n Stop: ",
+#             self.stop)
+# 
+# car1=vehicle("Ford","T")
+# 
+# car2=vehicle("BMW","S")
+# 
+# car3=vehicle("Peugeot","504")
+# 
+# cars=[car1,car2,car3]
+# 
+# file=open("thecars","wb")
+# 
+# pickle.dump(cars,file)
+# 
+# file.close()
+# 
+# del(file)
+# 
+# file_opening = open("thecars","rb")
+# 
+# mycars=pickle.load(file_opening)
+# file_opening.close()
+# 
+# for i in mycars:
+#     print(i.state())    
+#==============================================================================
+#==============================================================================
+# #Permanent seving
+# 
+# import pickle
+# 
+# class person():
+#     
+#     def __init__(self ,name ,gender ,age):
+#         self.name=name
+#         self.gender=gender
+#         self.age=age
+#         print("Created a new person with the name: ", self.name)
+#         
+#     def __str__(self):
+#         return "{} {} {}".format(self.name, self.gender, self.age)
+#     
+# class list_persons: 
+#     persons=[]
+#     
+#     def __init__(self):
+#         list_of_persons=open("file_extern","ab+")
+#         list_of_persons.seek(0)
+# 
+#         try:                    
+#             self.persons=pickle.load(list_of_persons)
+#             print("Loaded {} persons of the extern : ".format(len(self.persons)))
+#         except:
+#             print("The file is empty")
+#             
+#         finally:
+#             list_of_persons.close()
+#             del(list_of_persons)
+#             
+#         
+#     def add_persons(self,p):
+#         self.persons.append(p)
+#         self.save_persons_in_extern_file( )
+#         
+#     def print_persons(self):
+#         for p in self.persons:
+#             print(p)
+#             
+#     def save_persons_in_extern_file(self):
+#         list_of_persons=open("file_extern","wb")
+#         pickle.dump(self.persons, list_of_persons)
+#         list_of_persons.close()
+#         del(list_of_persons)
+#       
+#     def print_extern_file(self):
+#         print("The information of the extern file is: ")
+#         for p in self.persons:
+#             print(p)
+#         
+# mylist=list_persons()      
+# person=person("Phil","male",27)
+# mylist.add_persons(person)
+# mylist.print_extern_file()
+# 
+#==============================================================================
+# p=person("Jonny","male",30)
+# mylist.add_persons(p)
+# p=person("Katherin","female",22)
+# mylist.add_persons(p)
+# 
+# mylist.print_persons()
+#         
+#==============================================================================
+# Lambda functions
+        
+#
+# toCube = lambda nro: nro**3
+# 
+# print(toCube(2))
+# 
+# value = lambda comission:"¡{}! $".format(comission)
+# 
+# Otto = 20000
+# 
+# print(value(Otto))
+# 
+#
+#===============================================================================
+# filter() Function
+#==============================================================================
+# 
+# def nroPair(nro):
+#     
+#     if nro % 2 == 0:
+#         return True
+#
+#==============================================================================
+# 
+# listNro=[12,50,11,91,100]
+# 
+# print(list(filter(lambda nroPair: nroPair % 2 == 0, listNro )))
+#     
+# 
+# class worker:
+#     
+#     def __init__(self, name, position, salary):
+#         
+#         self.name = name
+#         self.position = position
+#         self.salary = salary
+#         
+#     def __str__(self):
+#         
+#         return "{} that work as {} has a salary of {} $".format(self.name, self.position, self.salary)
+#     
+#     
+# listWorkers=[worker("Stefan", "Director", 100000),
+#              worker("John", "Senior", 70000),
+#              worker("Sascha", "Semi-Senior", 50000),
+#              worker("Thelma", "Junior", 30000)]
+# 
+# 
+# highSalary = filter(lambda employee: employee.salary > 50000, listWorkers)
+#     
+# for employeeSalary in highSalary:
+#     
+#     print(employeeSalary)
+#         
+#
 
-print(ls)
+#===================================================================================
+# map() function
+#==============================================================================
+# 
+# class worker:
+#     
+#     def __init__(self, name, position, salary):
+#         
+#         self.name = name
+#         self.position = position
+#         self.salary = salary
+#         
+#     def __str__(self):
+#         
+#         return "{} that work as {} has a salary of {} $".format(self.name, self.position, self.salary)
+#     
+#     
+# listWorkers=[worker("Stefan", "Director", 100000),
+#              worker("John", "Senior", 70000),
+#              worker("Sascha", "Semi-Senior", 50000),
+#              worker("Thelma", "Junior", 30000)]        
+#         
+#         
+# def calculateComission(worker):
+# 
+#     if (worker.salary <= 50000):
+#         worker.salary = worker.salary*1.03       
+#     
+#     return worker
+# 
+# listWorkersComission = map( calculateComission, listWorkers )
+# 
+# for worker in listWorkersComission:
+#     
+#     print(worker)
+#     
+
+#======================================================================================================
+# Regulars expressions
+# 
+# import re
+#==============================================================================
+
+#string = "I go learn regular expression in Python. Python is an easy language."
+
+#print(re.search("learn", string))
+
+#searchText = "Python"
 
 
+# if re.search(searchText, string) is not None:
+#     
+#     print("I had find a text")
+#     
+# else:
+#     print("I hadn't find a text")
+# 
+
+# textFinded = re.search(searchText, string)
+# 
+# print(textFinded.start())
+# print(textFinded.end())
+# print(textFinded.span())
+# print(re.findall(searchText, string))
+# print(len(re.findall(searchText, string)))
+# 
+
+#======================================================================================================
+# Regulars expressions
 
 
+# import re
+# 
+# list_names = ['Martin Morrison', 
+#              'Ellen Anderson',
+#              'Arnold Morrison',
+#              'Anon Random',
+#              'Cosme Fulanito',
+#              'Lalo Landa',
+#              'Ellen Müller',
+#              'Carl Friedrich Gauß',
+#              'Carl Friedrich Gauss'
+#              ]
+# 
+# for element in list_names:
+#     
+#     if re.findall('^Ellen', element):                
+#         print(element)
+# 
+# print("==========================")
+# 
+# 
+# for element2 in list_names:
+#     if re.findall('Morrison$', element2):                
+#         print(element2)
+# print("==========================")        
+# 
+# 
+# for element3 in list_names:
+#     
+#         if re.findall('[ß]', element3):
+#             print(element3)
+# print("==========================")        
+# 
+# 
+# for element4 in list_names:
+#     
+#         if re.findall('Gau[ßs]', element4):
+#             print(element4)
+# print("==========================")        
+# 
+# 
+# for element5 in list_names:
+#     
+#         if re.findall('^[A-D]', element5):
+#             print(element5)
+# print("==========================")    
+# print("==========================")    
+# print("==========================")    
+#     
+#             
+# list_cars = ['Ford1',
+#              'Ford2',
+#              'BMW1',
+#              'Jagua1',
+#              'BMW2',
+#              'Maybach1',
+#              'BMW3',
+#              'Porsche1',
+#              'Mercedes Benz1',
+#              'BMW4',
+#              'Volkswagen1',
+#              'Volkswagen2',
+#              'BMW5']
+# 
+# for cars in list_cars:
+#     
+#     if re.findall('BMW[2-4]', cars):
+#         
+#         print(cars)
+# 
+#==============================================================================
+# # Regular espression match() and search()
+# 
+# import re
+# 
+# name1 = "Karl Marx"
+# name2 = "Vladimir Valentinovich Zukov"
+# name3 = "marie Houston"
+# 
+# 
+# if re.match("Marie", name3, re.IGNORECASE ):
+#     
+#     print("I finded the name")
+#     
+# else:
+#     print("I don't finded the name")
+#     
+# print("==========================")    
+# print("==========================")    
+# print("==========================")     
+#     
+#     
+# if re.search("Zukov", name2):
+#     
+#     print("I finded the name")
+#     
+# else:
+#     print("I don't finded the name")
+#     
+# 
+#==============================================================================
+# # decorator function
+# 
+# def function_decorator(functionParameter):
+#     
+#     def functionInside(*args, **kwargs):
+#         
+#         print("We go to realice a calculus: ")
+#         
+#         functionParameter(*args, **kwargs)
+#             
+#         print("Had finish the calculate: " )        
+#         
+#     return functionInside
+# 
+# 
+# @function_decorator
+# def add(nro1, nro2, nro3):
+#     print(nro1 + nro2 + nro3)
+# 
+# @function_decorator
+# def substraction(n1, n2):
+#     print(n1-n2)
+#    
+# @function_decorator    
+# def power(base, exponent):
+#     
+#     print(pow(base, exponent))
+#     
+# add(15, 20, 100)
+# substraction(20, 2)
+# power(5, 2)
+# 
+# power(base=2, exponent=3)
+# 
+# 
+# def comment():
+#     
+#     """this function make many calculates and
+#     It very usefull to work in hard days"""
+#     print(40+2)
+# 
+# 
+# print(comment.__doc__)
+# comment()
+# 
+# help(comment)
+# 
+#==============================================================================
 
 
