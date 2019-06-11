@@ -1101,5 +1101,409 @@ Created on Tue Nov  6 22:18:47 2018
 # help(comment)
 # 
 #==============================================================================
+# PYTHON COURSE INTERMEDIE: introduction
+#==============================================================================
+# 
+# class Person():
+#     age=18
+#     
+#     def __init__(self, name, nationality):
+#         self.name = name
+#         self.nationality = nationality
+#         
+#     def toSwim(self):
+#         print("I'm swimming")
+#         
+# person1 = Person("Otto","Deutscher")
+# print(Person.age)
+# print(person1.name)
+# print(person1.toSwim())
+# 
+# 
+# class Person2():
+#     
+#     def __init__(self):
+#         pass
+#     
+#     def sayGoodbye(self):
+#         print("Goodbye")
+#     
+#     @classmethod
+#     def greet(cls, name):
+#         print("I'm greeting " + name)
+#         
+# print(Person2.greet("Stella"))
+# 
+# 
+# class Dog():
+#     
+#     def __init__(self):
+#         pass
+#     def toEat(self):
+#         print("eating")
+#     
+#     @classmethod
+#     def toRun(cls):
+#         print("running")
+# 
+#     @staticmethod
+#     def toJump():
+#         print("Jumping")
+#         
+# Snoopy = Dog() 
+# Snoopy.toJump()
+#
+# 
+# class Circle:
+#     
+#     def __init__(self, radius):
+#         self.radius = radius
+#         
+#     @property
+#     def area(self):
+#         return 3.1416*(self.radius**2)
+#         
+# c = Circle(10)
+# print(c.area)
+#==============================================================================
+# # Polymorphism
+# 
+# class cat():
+#     def moving(self):
+#         print("cat")
+#         
+# class monkey():
+#     def moving(self):
+#         print("monkey")
+# 
+# def toMove(animal):
+#     animal.moving()
+#     
+# cat = cat()
+# monkey = monkey()
+# cat.moving()
+# monkey.moving()
+# 
+# toMove(cat)
+# toMove(monkey)
+# 
+# 
+#==============================================================================
+# Introspection
 
 
+# class Intro():
+#     Introver = 9
+#     def __init__(self, value):
+#         self.value = value
+#         
+#     def second(self):
+#         print("Second")
+# 
+#     def third(self):
+#         print(Third)
+#         
+# date = Intro("value")
+# print(dir(date))
+# 
+# print(isinstance(date, Intro))
+# 
+# print(hasattr(date, "Introver"))
+
+# 
+#==============================================================================
+# Threads
+# 
+# import threading
+# import time 
+# 
+# class myThread(threading.Thread):
+#     
+#     def run(self):
+#         print("{} starting".format(self.getName()))
+#         time.sleep(1)
+#         print("{} finished".format(self.getName()))
+#         
+# if __name__ == "__main__":
+#     for x in range(4):
+#         hilo = myThread(name="Thread-{}".format(x+1))
+#         hilo.start()
+#         time.sleep(.1)
+#         
+#  
+#==============================================================================
+#
+
+#==============================================================================
+# for i in open("dataList.txt"):
+#     
+#     print(i)
+#     
+# 
+# def numbers():
+#     
+#     n=2
+#     while True:
+#         yield n
+#         n+=1
+# 
+# j=numbers()
+# print(j)
+# print(j.__next__())
+# print(j.__next__())        
+# 
+#==============================================================================
+# Decorator
+
+
+# def firstD(function):
+#     def functionDecorator(*args, **kkwars):
+#         print("First decorator")
+#     return functionDecorator
+# 
+# 
+# @firstD
+# def function():
+#     print("My first decorator")
+#     
+# function()
+#==============================================================================
+# functional programming   
+#==============================================================================
+# 
+# def lettersLower(element):
+#     return element.lower()
+# 
+# listCities = ["Sydney","BOMBay","CABA"]
+# print(list(map(lettersLower, listCities)))
+# 
+# print([cad.lower() for cad in listCities])
+# 
+#==============================================================================
+# 
+# def greetings(language):
+#     def greeting_es():
+#         print("Hola")
+#     def greeting_en():
+#         print("Hello")
+#     def greeting_de():
+#         print("Hallo")
+#     def greeting_ru():
+#         print("Priviet")
+#         
+#     languages_func={"es": greeting_es,
+#               "en": greeting_en,
+#               "de": greeting_de,
+#               "ru": greeting_ru
+#                    }
+#     
+#     return languages_func[language]
+# 
+# greeting = greetings("de")
+# greeting()
+#     
+# 
+# from functools import reduce
+# 
+# nros = (1,20,7,11)
+# 
+# def toAdd(k,l):
+#     return k+l
+# 
+# resultNros = reduce(toAdd, nros)
+# print(resultNros)
+#  
+#==============================================================================
+# Regular expression
+    
+# import re
+# 
+# print(re.search(r"k", "kilometer"))
+# print(re.search(r"\d\d", "kilo42meter"))
+#    
+# pattern = re.compile("\d\d")
+# print(pattern.search( "kilo42meter").group())
+# 
+# if(re.search("\Aa[0-9].*(end|fin)$","a4 is a step fin")):
+#     print("It Found the pattern")
+#     
+# 
+# print(re.sub(r"\d","*","2route660012",4))
+#     
+#     
+# regex = re.compile(r"ac", re.IGNORECASE)    
+# print(regex.search("Action"))
+# 
+#==============================================================================
+# Pandas library: data frames
+#==============================================================================
+# 
+# import pandas as pd
+# import numpy as np
+# 
+# dictionary={'Names':
+#     ['Steve','Angela','Esther','Jonas'] ,'Grades':
+#     ['4','7','10','1'],'Sports':
+#     ['swimming','football','running','cycling'],'subjects':
+#     ['Physic','Math','Chemical','Logic']} 
+# 
+# df=pd.DataFrame(dictionary)
+# print(df)
+# 
+# print('\n'*2)
+# # Datas not valide
+# dictionary2={'Names':
+#     ['Steve','Angela','N/A','Jonas'] ,'Grades':
+#     ['4','7',np.nan,'1'],'Sports':
+#     ['swimming','N/A','running','cycling'],'subjects':
+#     ['Physic','N/A','Chemical','Logic']} 
+# 
+# df2=pd.DataFrame(dictionary2)
+# print(df2)
+# print('\n'*2)
+# print(df2.info())
+# print('\n'*4)
+# 
+# 
+# # basic statistics
+# print(df2.describe())
+# 
+# 
+# print('\n'*4)
+# df3=pd.DataFrame(df2)
+# df3=df3.replace(np.nan,"0")
+# print(df3)
+# 
+# 
+# print('\n'*4)
+# df4=pd.DataFrame(df2)
+# df4.dropna(how="any", inplace=True)
+# print(df4)
+# print('\n'*2)
+# 
+# 
+# # eliminate record searching for column
+# column=df2[df2["Names"]!="N/A"]
+# print(column)
+# print('\n'*4)
+# 
+# 
+# # Convert anywhere nan value to 0
+# df3=pd.DataFrame(df2)
+# df3.fillna(0, inplace=True)
+# print(df3)
+# print('\n'*4)
+# # Convert to integer numbers
+# df3['Grades']=df3.Grades.astype(int)
+# print(df3.describe())
+# 
+# 
+# print('\n'*4)
+# print("Mean: ",df3['Grades'].mean())
+# print("Maximun value: ",df3['Grades'].max())
+# 
+#==============================================================================
+# Pandas library: basics statistics for CSV files
+#==============================================================================
+# 
+# import pandas as pd
+# import numpy as np
+# 
+# atp_data = pd.read_csv('atp-tour-data.csv',encoding = "ISO-8859-1")
+# 
+# print(atp_data.info())
+# print(atp_data.head())
+# 
+# atp_df = pd.DataFrame(atp_data)
+# print(atp_df)
+# print('\n'*4)
+# 
+# atp_df = atp_df.replace(np.nan, "0")
+# atp_df = atp_df.replace("N/A", "0")
+# atp_df = atp_df.replace("NR", "0")
+# 
+# # Statistics without NR, N/A and NAN
+# print(atp_df.describe(include=[np.number]))
+#==============================================================================
+# Pandas Library: How select rows and columns in CSV files?
+#==============================================================================
+# 
+# import pandas as pd
+# 
+# atp_data = pd.read_csv('atp-tour-data.csv',encoding = "ISO-8859-1")
+# 
+# print(atp_data.info())
+# print(atp_data.head())
+# print(atp_data.iloc[0:5])
+# 
+# # Selected rows
+# print(atp_data.iloc[[1,3,4,8],])
+# 
+# # Selected columns
+# print(atp_data.iloc[:,0:2])
+# 
+# # Selected rows and columns
+# print(atp_data.iloc[[0,4,5],[1,2]])
+#==============================================================================
+# Pandas library: selection of rows and columns for names LOC
+
+#==============================================================================
+# import pandas as pd
+# 
+# atp_data = pd.read_csv('atp-tour-data.csv',encoding = "ISO-8859-1") 
+# print(atp_data.head())
+# 
+# atp_data.set_index("Location", inplace=True)
+# print("Melbourne")
+# print(atp_data.loc["Melbourne"])
+# print('\n'*5)
+# print("Atlanta and kind of surface:")
+# print(atp_data.loc["Atlanta","Surface"])
+# 
+# print('\n'*5)
+# print("Extend selection")
+# print(atp_data.loc[["Atlanta","Melbourne"],["Series","Court"]])
+# 
+# 
+# print('\n'*5)
+# print("Selection with range")
+# print(atp_data.loc[["Atlanta","Melbourne"],"Series":"Round"])
+# 
+# 
+# print('\n'*5)
+# print("Selected only grand slam")
+# print(atp_data.loc[atp_data["Series"].str.endswith("Slam")])
+#==============================================================================
+# Pandas library: export to CSV file
+#==============================================================================
+# 
+# import pandas as pd
+# 
+# data = pd.read_csv('atp-tour-data.csv',encoding = "ISO-8859-1") 
+# df = pd.DataFrame(data)
+# data.set_index("Location", inplace=True)
+# df = data.loc["Melbourne"]
+# df.reset_index().to_csv("selected_melbourne.csv", header=True, index=False)
+#==============================================================================
+# Pandas library: data's search with conditions
+#==============================================================================
+# 
+# import pandas as pd
+# 
+# data = pd.read_csv('atp-tour-data.csv',encoding = "ISO-8859-1") 
+# data.set_index("Location", inplace=True)
+# 
+# # Many conditions
+# print(data.loc[data["Series"].str.endswith("Slam")&(data["Surface"]=="Clay")&(data["Winner"]=="Federer R.")&(data["Round"]=="The Final")])
+# 
+#==============================================================================
+# Pandas library: order values for columns
+
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('DatosYT.csv',encoding = "ISO-8859-1") 
+print(df.dtypes)
+
+df2=pd.DataFrame(np.sort(df.values,axis=0),index=df.index,columns=df.columns)
+print(df2)
