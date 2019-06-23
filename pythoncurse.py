@@ -1498,12 +1498,52 @@ Created on Tue Nov  6 22:18:47 2018
 # 
 #==============================================================================
 # Pandas library: order values for columns
-
-import pandas as pd
-import numpy as np
-
-df = pd.read_csv('DatosYT.csv',encoding = "ISO-8859-1") 
-print(df.dtypes)
-
-df2=pd.DataFrame(np.sort(df.values,axis=0),index=df.index,columns=df.columns)
-print(df2)
+#==============================================================================
+# import pandas as pd
+# import numpy as np
+# 
+# df = pd.read_csv('DatosYT.csv',encoding = "ISO-8859-1") 
+# print(df.dtypes)
+# 
+# df2=pd.DataFrame(np.sort(df.values,axis=0),index=df.index,columns=df.columns)
+# print(df2)
+#==============================================================================
+# # Pandas library: remove rows in a dataframe
+# 
+# import pandas as pd
+# 
+# dfsongs = pd.read_csv("canciones.csv")
+# print(dfsongs.info())
+# print(dfsongs)
+# filas=len(dfsongs.index)
+# print("Filas:", filas)
+# 
+# dfsongs.drop(dfsongs.index[[filas-1]], inplace = True)
+# filas=len(dfsongs.index)
+# print("Filas:", filas)
+# print(dfsongs)
+# 
+#==============================================================================
+# Pandas library: write to infomation in a fila CSV
+#==============================================================================
+# 
+# dic = {
+#    "Chaco":"Resistencia",
+#    "Capital Federal":"CABA",
+#    "Córdoba":"Córdoba",
+#    "Corrientes":"Corrientes"
+#        }
+# 
+# file = "ciudades.csv"
+# csv = open("ciudades.csv","w")
+# title="provincia, capital\n"
+# csv.write(title)
+# 
+# for key in dic.keys():
+#     provincia = key
+#     capital = dic[key]
+#     filas = provincia + "," + capital + "\n"
+#     csv.write(filas)
+#==============================================================================
+    
+    
