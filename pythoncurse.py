@@ -1545,5 +1545,277 @@ Created on Tue Nov  6 22:18:47 2018
 #     filas = provincia + "," + capital + "\n"
 #     csv.write(filas)
 #==============================================================================
-    
-    
+# NumPy library:    
+#==============================================================================
+#     
+# import numpy as np
+# 
+# a=np.array([1,2,3,4,5])
+# 
+# print("Matriz unidimensional:", a)
+# 
+# a2=np.array([(1,2,3,4,5),(6,7,8,9,10)])
+# print("Matriz bidimentional: ",a2)
+# 
+# 
+# import sys
+# 
+# S=range(1000)
+# print("Memory's result of python's list: ", sys.getsizeof(5)*len(S))
+# 
+# 
+# D=np.arange(1000)
+# print("Memory's result of NumPy's array: ", D.size*D.itemsize)
+# 
+# 
+# import time
+# 
+# SIZE = 1000000
+# 
+# L1 = range(SIZE)
+# L2 = range(SIZE)
+# A1 = np.arange(SIZE)
+# A2 = np.arange(SIZE)
+# 
+# start = time.time()
+# result=[(x,y) for x,y in zip(L1,L2)]
+# print("===========================")
+# print("Python's list result: ", (time.time() - start)*1000)
+# print("===========================")
+# print("===========================")
+# start = time.time()
+# result=A1+A2
+# print("Numpy's array result: ", (time.time() - start)*1000)
+# 
+# 
+# nros = np.ones((4,6))
+# print(nros)
+# 
+# nros2 = np.zeros((4,6))
+# print(nros2)
+# 
+# ran = np.random.random((3,3))
+# print(ran)
+# 
+# 
+# emp = np.empty((4,4))
+# print(emp)
+# 
+# al = np.full((3,3),2.71)
+# print(al)
+# 
+# sec1 = np.arange(0,36,3)
+# print(sec1)
+# 
+# sec2 = np.linspace(0,1,10)
+# print(sec2)
+# 
+# import pandas as pd
+# 
+# print(ran.ndim)
+# print(ran.dtype)
+# print(ran.size)
+# print(ran.shape)
+# print(ran.max)
+# print(ran.min())
+# print(ran.sum())
+# print(np.sqrt(ran))
+# 
+#==============================================================================
+# Matplotlib library
+#==============================================================================
+# 
+# import matplotlib.pyplot as plt
+# 
+# a = [2,4,6,8,10]
+# c = [10,20,30,40,50]
+# 
+# plt.plot(a, c, color='blue', linewidth = 3, label = 'línea')
+# plt.legend()
+# plt.show()
+# 
+# 
+#==============================================================================
+# Matplotlib library
+#==============================================================================
+# 
+# import matplotlib.pyplot as plt
+# 
+# # Define the data
+# x1 = [1,5,7,8]
+# y1 = [0,5,2,2]
+# 
+# # Configuration of the graphic's characteristics  
+# plt.plot(x1 ,y1 , label = 'line 1', linewidth = 4, color = 'blue')
+# 
+# # Define the title and the name
+# plt.title('Lineal diagram')
+# plt.ylabel('Axis y')
+# plt.xlabel('Axis x')
+# 
+# # Show to legend, grid and figure
+# plt.legend()
+# plt.grid()
+# plt.show()
+# 
+#==============================================================================
+# # Scikit Learn library
+# 
+# import numpy as np
+# from sklearn import datasets, linear_model
+# import matplotlib.pyplot as plt
+# 
+# ### Prepare the data 
+# 
+# # I import the data of the scikit-learn's library
+# boston=datasets.load_boston()
+# print(boston)
+# print()
+# 
+# ### Understanding of the data
+# 
+# # I check the information container in dataset
+# print("The information in dataset: ")
+# print(boston.keys())
+# print()
+# 
+# # I check the characteristic of dataset
+# print("The characteristics of dataset:")
+# print(boston.DESCR)
+# 
+# # I check the quantity of data what are there in the datasets
+# print("Number of data: ")
+# print(boston.data.shape)
+# print()
+# 
+# # I check the information of the columns
+# print("Number of columns: ")
+# print(boston.feature_names)
+# 
+# ### Prepare the data of lineal regression simple
+# 
+# # I selected only the column 5 of dataset 
+# X = boston.data[:, np.newaxis,5]
+# 
+# # I define the data corresponding to the tags
+# y = boston.target
+# 
+# # I graphic the data corresponding
+# plt.scatter(X,y)
+# plt.xlabel("Number of bedrooms: ")
+# plt.ylabel("Average value: ")
+# plt.show()
+# 
+# ### lineal regression single implementation
+# from sklearn.model_selection import train_test_split
+# 
+# # I separate of "train"'s data and test 
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+# 
+# # I define the algorithm to use
+# lr = linear_model.LinearRegression()
+# 
+# # I train the model
+# lr.fit(X_train, y_train)
+# 
+# # I make a prediction
+# Y_pred = lr.predict(X_test)
+# 
+# # I graphic the data together to model
+# plt.scatter(X_test, y_test)
+# plt.plot(X_test, Y_pred, color="red", linewidth=3)
+# plt.title("Lineal regression single")
+# plt.xlabel("Number of bedrooms: ")
+# plt.ylabel("average value: ")
+# plt.show()
+# 
+# print()
+# print("Data of the lineal regression single")
+# print()
+# print("Pending's value or coefficient a: ")
+# print(lr.coef_)
+# print("Intersection's value or coefficient b: ")
+# print(lr.intercept_)
+# print()
+# print("The model's ecuation is equal to: ")
+# print("y = ", lr.coef_, " x ", lr.intercept_)
+# 
+# print()
+# print("Model's precision: ")
+# print(lr.score(X_train, y_train))
+# 
+#==============================================================================
+#==============================================================================
+# # Scikit Learn library
+# 
+# # I import the library what am I going to use
+# from sklearn import datasets, linear_model
+# 
+# ### prepare to the data
+# 
+# # I import the data from the same library
+# boston = datasets.load_boston()
+# print(boston)
+# print()
+# 
+# ### data understanding
+# 
+# # I check the data contain in dataset
+# print("Information in dataset: ")
+# print(boston.keys())
+# print()
+# 
+# # I check the dataset's characteristics
+# print("Dataset's characteristics: ")
+# print(boston.DESCR)
+# print()
+# 
+# # I check the number of data in the dataset
+# print("Number of data: ")
+# print(boston.data.shape)
+# print()
+# 
+# # I check the information of the columns
+# print("Columns name: ")
+# print(boston.feature_names)
+# 
+# ### Lineal regression multiple: I prepare the data
+# 
+# # I selected the columns 5, 6 and 7 of dataset
+# X_multiple = boston.data[:, 5:8]
+# print(X_multiple)
+# 
+# # I define the data corresponding to the tags
+# y_multiple = boston.target
+# 
+# ### Lineal regression multiple implementation
+# 
+# from sklearn.model_selection import train_test_split
+# 
+# # I split the data of "train" in train and test for test the algorithm
+# X_train, X_test, y_train, y_test = train_test_split(X_multiple, y_multiple, test_size=0.2)
+# 
+# # I define the algorithm to use
+# lr_multiple = linear_model.LinearRegression()
+# 
+# # I train the model
+# lr_multiple.fit(X_train, y_train)
+# 
+# # I make a prediction
+# Y_pred_multiple = lr_multiple.predict(X_test)
+# 
+# print("Data of Lineal regression model")
+# print()
+# 
+# print("Pending's value or coefficient a: ")
+# print(lr_multiple.coef_)
+# 
+# print("Intersection's value or coeffiecient b: ")
+# print(lr_multiple.intercept_)
+# 
+# print("Model's presicion: ")
+# print(lr_multiple.score(X_train, y_train))
+# 
+# 
+#==============================================================================
+
