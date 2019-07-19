@@ -1818,4 +1818,99 @@ Created on Tue Nov  6 22:18:47 2018
 # 
 # 
 #==============================================================================
-
+# Polynomial regression
+#==============================================================================
+# 
+# 
+# ### I import the library to use
+# import numpy as np
+# from sklearn import datasets, linear_model
+# import matplotlib.pyplot as plt
+# 
+# 
+# ### Prepare the data
+# 
+# # I import the data from same library of scikit-learn
+# boston = datasets.load_boston()
+# print(boston)
+# print()
+# 
+# 
+# ### Data understanding
+# 
+# # I check the information of the dataset
+# print("The information about dataset:")
+# print(boston.keys())
+# print()
+# 
+# # I verify the characteristic of dataset
+# print("The characteristic of dataset: ")
+# print(boston.DESCR)
+# 
+# # I verify the quantity of data what are there in dataset
+# print("Quantity of data: ")
+# print(boston.data.shape)
+# print()
+# 
+# # I verify the information of columns
+# print("Columns names: ")
+# print(boston.feature_names)
+# 
+# 
+# ###### Prepare the data: polynomial regression
+# 
+# # I selected the column 6 of dataset
+# X_p = boston.data[:, np.newaxis, 5]
+# 
+# # I define the data corresponding to the tags
+# y_p = boston.target
+# 
+# # I graphic the corresponding data
+# plt.scatter(X_p, y_p)
+# plt.show()  
+# 
+# ### Polynomial regression implementation
+# 
+# from sklearn.model_selection import train_test_split
+# 
+# # I split the train data in training and I test the algorithm
+# X_train_p, X_test_p, y_train_p, y_test_p = train_test_split(X_p, y_p, test_size=0.2)
+# 
+# from sklearn.preprocessing import PolynomialFeatures
+# 
+# # I define the degree of polynomial
+# poli_reg = PolynomialFeatures(degree = 2)
+# 
+# # Transform the existing characteristics to a characteristics greater degree
+# X_train_poli = poli_reg.fit_transform(X_train_p)
+# X_test_poli = poli_reg.fit_transform(X_test_p)
+# 
+# # I define the algorithm to use
+# pr = linear_model.LinearRegression()
+# 
+# # Training the model
+# pr.fit(X_train_poli, y_train_p)
+# 
+# # I realize a prediction
+# Y_pred_pr = pr.predict(X_test_poli)
+# 
+# # I graphich the data together with model
+# plt.scatter(X_test_p, y_test_p)
+# plt.plot(X_test_p, Y_pred_pr, color="red", linewidth=3)
+# plt.show()
+# 
+# 
+# print()
+# print("Data of polynomial regression model: ")
+# print()
+# 
+# print("Pending value or coefficient a")
+# print(pr.coef_)
+# 
+# 
+# print("Intercept value or coefficient o")
+# print(pr.intercept_)
+# 
+# print("Model's presicion: ")
+# print(pr.score(X_train_poli, y_train_p))
+#==============================================================================
