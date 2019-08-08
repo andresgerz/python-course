@@ -1914,3 +1914,80 @@ Created on Tue Nov  6 22:18:47 2018
 # print("Model's presicion: ")
 # print(pr.score(X_train_poli, y_train_p))
 #==============================================================================
+# Vector of support regression 
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import datasets
+
+
+### prepare of the data ###
+# Import the data of the same library that scikit-learn
+boston = datasets.load_boston()
+print(boston)
+print()
+
+### understanding of data ###
+# Check the information contain in the dataset
+print('Information of the dataset:')
+print(boston.keys())
+print()
+
+# Check the characteristic of dataset
+print('Characteristic of dataset: ')
+print(boston.DESCR)
+
+# Check the number of data that's there in the dataset
+print('Number of data:')
+print(boston.data.shape)
+print()
+
+# Check the information of columns
+print('Columns names: ')
+print(boston.feature_names)
+
+### Preparing the vectors support regression
+
+# Selected the column number 6 of dataset
+X_svr = boston.data[:, np.newaxis, 5]
+
+# I defined the data corresponding to tags
+y_svr = boston.target
+
+
+# Graphic to the corresponding data
+plt.scatter(X_svr, y_svr)
+plt.show()
+
+
+### Implementation of vectors support regression
+from sklearn.model_selection import train_test_split 
+
+# I split the data "train" in training and test for test the algorithm
+X_train, X_test, y_train, y_test = train_test_split(X_svr, y_svr, test_size=0.2)
+
+from sklearn.svm import SVR
+
+# I define the algorithm to use
+svr = SVR(kernel = 'linear', C=1.0, epsilon=0.2)
+
+# I train the model
+svr.fit(X_train, y_train)
+
+# I realice a prediction
+Y_pred = svr.predict(X_test)
+
+# I graphic the data together with the model 
+plt.scatter(X_test, y_test)
+plt.plot(X_test, Y_pred, color='red', linewidth=3)
+plt.show()
+
+print()
+print('Data of model vectors support regression')
+print()
+
+
+print('Presicion of model: ')
+print(svr.score(X_train, y_train))
+
+
