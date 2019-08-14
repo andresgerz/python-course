@@ -1993,81 +1993,168 @@ Created on Tue Nov  6 22:18:47 2018
 # 
 #==============================================================================
 # Decision Tree Regression
+#==============================================================================
+# 
+# # I import the libraties to use
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from sklearn import datasets
+# 
+# ### Prepare the data ###
+# 
+# # I import the same data of scikit-learn library
+# boston = datasets.load_boston()
+# print(boston)
+# print()
+# 
+# 
+# ### Data understanding ###
+# 
+# # I check the information contain in dataset
+# print('Information of dataset: ')
+# print(boston.keys())
+# print()
+# 
+# # I verify the dataset's characteristics
+# print("Dataset's characteristic")
+# print(boston.DESCR)
+# 
+# # I check the number of data that's there in dataset
+# print("Data's number:")
+# print(boston.data.shape)
+# print()
+# 
+# # I check the information of columns
+# print("Columns's name: ")
+# print(boston.feature_names)
+# 
+# 
+# ### Prepare the data of the Decision Tree Regression ###
+# 
+# # I select only the column 6 of dataset
+# X_adr = boston.data[:, np.newaxis, 5]
+# 
+# # I define the data corresponding of the tags
+# y_adr = boston.target
+# 
+# # I graphic the corresponding data
+# plt.scatter(X_adr, y_adr)
+# plt.show()
+# 
+# 
+# ### Implementation of Decision Tree Regression ###
+# 
+# from sklearn.model_selection import train_test_split
+# 
+# # I split the data of "train" in train and test for to probe the algorithms
+# X_train, X_test, y_train, y_test = train_test_split(X_adr, y_adr, test_size = 0.2)
+# 
+# from sklearn.tree import DecisionTreeRegressor
+# 
+# # I define the algorithms to use
+# adr = DecisionTreeRegressor(max_depth=5)
+# 
+# # I train the model
+# adr.fit(X_train, y_train)
+# 
+# # I realice a prediction
+# Y_pred = adr.predict(X_test)
+# 
+# # I graphic the test's data togheter with the prediction
+# X_grid = np.arange(min(X_test), max(X_test), 0.1)
+# X_grid = X_grid.reshape((len(X_grid), 1))
+# plt.scatter(X_test, y_test)
+# plt.plot(X_grid, adr.predict(X_grid), color='red', linewidth=3)
+# plt.show()
+# 
+# print('Data of Decision Tree Regression')
+# print()
+# 
+# print('Model presicion')
+# print(adr.score(X_train, y_train))
+#==============================================================================
+# Random Forest Regression
 
-# I import the libraties to use
+### Libraries to use ###
+
+# I import the libraries
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
 
-### Prepare the data ###
 
-# I import the same data of scikit-learn library
+### Prerare the data ###
+
+# I import the data from the same library scikit-learn
 boston = datasets.load_boston()
 print(boston)
 print()
 
 
-### Data understanding ###
+### Understanding the data ###
 
-# I check the information contain in dataset
+# I check the information contain in the dataset
 print('Information of dataset: ')
 print(boston.keys())
 print()
 
-# I verify the dataset's characteristics
-print("Dataset's characteristic")
+# I check the characteristic of dataset
+print('Characteristic of dataset: ')
 print(boston.DESCR)
 
-# I check the number of data that's there in dataset
-print("Data's number:")
+# I check the number of data is there in dataset
+print('Number of data: ')
 print(boston.data.shape)
 print()
 
 # I check the information of columns
-print("Columns's name: ")
+print('Column names:')
 print(boston.feature_names)
 
 
-### Prepare the data of the Decision Tree Regression ###
+### Prepare de data of Random Forecast Regression ###
 
-# I select only the column 6 of dataset
-X_adr = boston.data[:, np.newaxis, 5]
+# Select the column 6 of dataset
+X_bar = boston.data[:, np.newaxis, 5]
 
-# I define the data corresponding of the tags
-y_adr = boston.target
+# Define the data corresponding to dataset
+y_bar = boston.target
 
-# I graphic the corresponding data
-plt.scatter(X_adr, y_adr)
+# Graphic the corresponding data
+plt.scatter(X_bar, y_bar)
 plt.show()
 
 
-### Implementation of Decision Tree Regression ###
+### Implementation of Random Forecast Regression ###
 
 from sklearn.model_selection import train_test_split
 
-# I split the data of "train" in train and test for to probe the algorithms
-X_train, X_test, y_train, y_test = train_test_split(X_adr, y_adr, test_size = 0.2)
+# I split the data "train" between training and test for to check
+# the next algorithms
 
-from sklearn.tree import DecisionTreeRegressor
+X_train, X_test, y_train, y_test = train_test_split(X_bar,y_bar,test_size=0.2)
 
-# I define the algorithms to use
-adr = DecisionTreeRegressor(max_depth=5)
+from sklearn.ensemble import RandomForestRegressor
+
+# I define the algorithm to use
+bar = RandomForestRegressor(n_estimators = 300, max_depth = 8)
 
 # I train the model
-adr.fit(X_train, y_train)
+bar.fit(X_train, y_train)
 
 # I realice a prediction
-Y_pred = adr.predict(X_test)
+Y_pred = bar.predict(X_test)
 
-# I graphic the test's data togheter with the prediction
+# Graphic the test data togheter with the prediction data
 X_grid = np.arange(min(X_test), max(X_test), 0.1)
 X_grid = X_grid.reshape((len(X_grid), 1))
 plt.scatter(X_test, y_test)
-plt.plot(X_grid, adr.predict(X_grid), color='red', linewidth=3)
+plt.plot(X_grid, bar.predict(X_grid), color='red', linewidth=3)
 plt.show()
 
-print('Data of Decision Tree Regression')
+
+print('Information about the model of Random Forecast Regression')
 print()
 
-print('Model presicion')
-print(adr.score(X_train, y_train))
+print('Precision of model: ')
+print(bar.score(X_train, y_train))
