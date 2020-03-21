@@ -8,10 +8,18 @@ Remember to use Read-Search-Ask if you get stuck. Write your own code.
 """
 
 
-"""
-def reverse_string(string):
-    string2 = ""
+
+#def reverse_string(string):
+string = "idish"
+list = []
+
+for i in range(len(string)-1, -1, -1):
     
-    for i in string:
-        
-   """ 
+    list.append(string[i])
+    
+s = ""    
+
+for i in list:
+    s += i
+
+print(s)

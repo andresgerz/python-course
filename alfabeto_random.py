@@ -27,7 +27,7 @@ def ordenar_random(desordenado, orden_alfabeto):
     # en un diccionario, junto con sus claves que son las palabras.
     for z in desordenado:
         while(w < len(z)):
-            accu += str(orden_alfabeto.index(z[w])+10)    # sumo 10 por la indexacion de las primero 10 letras da de 0 hasta 9 y no 00 y 09
+            accu += str(orden_alfabeto.index(z[w])+10)  # change this sumo 10 por la indexacion de las primero 10 letras da de 0 hasta 9 y no 00 y 09
             w += 1
             
         dic[z] = float(accu)

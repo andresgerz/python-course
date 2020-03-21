@@ -2078,83 +2078,92 @@ Created on Tue Nov  6 22:18:47 2018
 ### Libraries to use ###
 
 # I import the libraries
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import datasets
+# =============================================================================
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from sklearn import datasets
+# 
+# 
+# ### Prerare the data ###
+# 
+# # I import the data from the same library scikit-learn
+# boston = datasets.load_boston()
+# print(boston)
+# print()
+# 
+# 
+# ### Understanding the data ###
+# 
+# # I check the information contain in the dataset
+# print('Information of dataset: ')
+# print(boston.keys())
+# print()
+# 
+# # I check the characteristic of dataset
+# print('Characteristic of dataset: ')
+# print(boston.DESCR)
+# 
+# # I check the number of data is there in dataset
+# print('Number of data: ')
+# print(boston.data.shape)
+# print()
+# 
+# # I check the information of columns
+# print('Column names:')
+# print(boston.feature_names)
+# 
+# 
+# ### Prepare de data of Random Forecast Regression ###
+# 
+# # Select the column 6 of dataset
+# X_bar = boston.data[:, np.newaxis, 5]
+# 
+# # Define the data corresponding to dataset
+# y_bar = boston.target
+# 
+# # Graphic the corresponding data
+# plt.scatter(X_bar, y_bar)
+# plt.show()
+# 
+# 
+# ### Implementation of Random Forecast Regression ###
+# 
+# from sklearn.model_selection import train_test_split
+# 
+# # I split the data "train" between training and test for to check
+# # the next algorithms
+# 
+# X_train, X_test, y_train, y_test = train_test_split(X_bar,y_bar,test_size=0.2)
+# 
+# from sklearn.ensemble import RandomForestRegressor
+# 
+# # I define the algorithm to use
+# bar = RandomForestRegressor(n_estimators = 300, max_depth = 8)
+# 
+# # I train the model
+# bar.fit(X_train, y_train)
+# 
+# # I realice a prediction
+# Y_pred = bar.predict(X_test)
+# 
+# # Graphic the test data togheter with the prediction data
+# X_grid = np.arange(min(X_test), max(X_test), 0.1)
+# X_grid = X_grid.reshape((len(X_grid), 1))
+# plt.scatter(X_test, y_test)
+# plt.plot(X_grid, bar.predict(X_grid), color='red', linewidth=3)
+# plt.show()
+# 
+# 
+# print('Information about the model of Random Forecast Regression')
+# print()
+# 
+# print('Precision of model: ')
+# print(bar.score(X_train, y_train))
+# =============================================================================
 
-
-### Prerare the data ###
-
-# I import the data from the same library scikit-learn
-boston = datasets.load_boston()
-print(boston)
-print()
-
-
-### Understanding the data ###
-
-# I check the information contain in the dataset
-print('Information of dataset: ')
-print(boston.keys())
-print()
-
-# I check the characteristic of dataset
-print('Characteristic of dataset: ')
-print(boston.DESCR)
-
-# I check the number of data is there in dataset
-print('Number of data: ')
-print(boston.data.shape)
-print()
-
-# I check the information of columns
-print('Column names:')
-print(boston.feature_names)
-
-
-### Prepare de data of Random Forecast Regression ###
-
-# Select the column 6 of dataset
-X_bar = boston.data[:, np.newaxis, 5]
-
-# Define the data corresponding to dataset
-y_bar = boston.target
-
-# Graphic the corresponding data
-plt.scatter(X_bar, y_bar)
-plt.show()
-
-
-### Implementation of Random Forecast Regression ###
-
-from sklearn.model_selection import train_test_split
-
-# I split the data "train" between training and test for to check
-# the next algorithms
-
-X_train, X_test, y_train, y_test = train_test_split(X_bar,y_bar,test_size=0.2)
-
-from sklearn.ensemble import RandomForestRegressor
-
-# I define the algorithm to use
-bar = RandomForestRegressor(n_estimators = 300, max_depth = 8)
-
-# I train the model
-bar.fit(X_train, y_train)
-
-# I realice a prediction
-Y_pred = bar.predict(X_test)
-
-# Graphic the test data togheter with the prediction data
-X_grid = np.arange(min(X_test), max(X_test), 0.1)
-X_grid = X_grid.reshape((len(X_grid), 1))
-plt.scatter(X_test, y_test)
-plt.plot(X_grid, bar.predict(X_grid), color='red', linewidth=3)
-plt.show()
-
-
-print('Information about the model of Random Forecast Regression')
-print()
-
-print('Precision of model: ')
-print(bar.score(X_train, y_train))
+# =============================================================================
+# x = 2
+# 
+# a = [x**3-1 for xi in range(7)]
+# print(a)
+# =============================================================================

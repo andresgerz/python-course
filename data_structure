@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Nov  9 15:49:55 2019
+
+@author: andres
+"""
+
+"""
+Learn all data structure
+Use modules as NumPy, Pandas, time, sys, ...
+"""
+
+import time
+
+############ 1) Bubble sort ########
+
+list1 = [2, 9, 5, 10, -1, -5]
+
+print("Original order: ", list1)
+
+
+start = time.time()
+
+
+def bubble_sort(arr):
+    def swap(i, j):
+        arr[i], arr[j] = arr[j], arr[i]
+
+    n = len(arr)
+    swapped = True
+
+    x = -1
+    while swapped:
+        swapped = False
+        x += 1
+
+        for i in range(1, n - x):
+            if arr[i - 1] > arr[i]:
+                swap(i - 1, i)
+                swapped = True
+    return arr
+
+
+print("\n\n", bubble_sort(list1))
+print("Bubble sort --> Time: ", (time.time() - start) * 1000, "ms")
+print("=======================================================")
+
+
+######## 2) Selection sort
+start3 = time.time()
+
+def selection_sort(arr):
+    for i in range(len(arr)):
+        min = i
+    
+        for j in range(i + 1, len(arr)):
+            
+            if arr[j] < arr[min]:
+                min = j
+        
+        arr[min], arr[i] = arr[i], arr[min] 
+    
+    return arr
+    
+print(selection_sort(list1))
+print("Selection sort --> Time: ", (time.time() - start3) * 1000, "ms")
+print("=======================================================")
+
+
+######## 3) Insertion sort ########
+
+# def insertion_sort(arr):
+""" for i in range(list1):
+ """
+
+######## 7) Sorted function ##########
+start4 = time.time()
+print(sorted(list1))
+print("Sorted function --> Time: ", (time.time() - start4) * 1000, "ms")
+
+# then make all methods with the list, after that excercise order with matrixs
